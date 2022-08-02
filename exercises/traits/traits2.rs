@@ -11,13 +11,21 @@
 // you can do this!
 // Execute `rustlings hint traits2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 //TODO: Add your code here
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self {
+        // so this would add "Bar" to the end of all Strings... which is not what they want.
+        // self.into_iter().map(|s| s + "Bar").collect()
+
+        // next attempt
+        self.push("Bar".into());
+        self
+    }
+}
 
 #[cfg(test)]
 mod tests {
